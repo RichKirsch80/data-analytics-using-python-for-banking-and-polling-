@@ -14,10 +14,13 @@ with open(csvpath, newline='') as csvfile:
     cand2_count = 0
     cand3_count = 0
     cand4_count = 0
-
+    cand = []
     for row in reader:
         if line_count == 0:
             line_count += 1
+        #sorts data to find unique cancidate names
+        if row[2] not in cand:
+            cand.append(row[2])
         else:
             line_count += 1
             if row[2] == 'Khan':

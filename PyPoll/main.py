@@ -14,10 +14,15 @@ with open(csvpath, newline='') as csvfile:
     cand2_count = 0
     cand3_count = 0
     cand4_count = 0
-
+    cand = []
+    #loop to read rows and count each candidate
     for row in reader:
         if line_count == 0:
             line_count += 1
+        #sorts data to find unique cancidate names
+        if row[2] not in cand:
+            cand.append(row[2])
+        #counts each candidates votes
         else:
             line_count += 1
             if row[2] == 'Khan':
@@ -28,6 +33,7 @@ with open(csvpath, newline='') as csvfile:
                 cand3_count = cand3_count + 1
             if row[2] == "O'Tooley":
                 cand4_count = cand4_count + 1
+    #finds percentage and coverts to correct format
     c1 = cand1_count / line_count
     c1_percent = "{:.0%}".format(c1)
     c2 = cand2_count / line_count
@@ -37,6 +43,7 @@ with open(csvpath, newline='') as csvfile:
     c4 = cand4_count / line_count
     c4_percent = "{:.0%}".format(c4)
 
+#Prints findings
 print("Election Results")
 print("----------------------")
 print("Total Votes: ", line_count)
