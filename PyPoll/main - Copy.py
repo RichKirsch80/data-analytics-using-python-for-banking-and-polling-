@@ -48,19 +48,6 @@ print("O'Tooley;",c4_percent, cand4_count)
 print("----------------------")
 print("Winner: ")
 print("----------------------")
-
-#Specify the file to write to election_analysis.csv
-output_path = os.path.join("..","PyPoll", "analysis", "election_analysis.csv")
-
-# Open the file using "write" mode. Specify the variable to hold the contents
-with open(output_path, 'w', newline='') as csvfile:
-
-    # Initialize csv.writer
-    csvwriter = csv.writer(csvfile, delimiter=',')
-
-    # Write (column headers)
-    csvwriter.writerow(['Candidate', 'Percentage of Vote', 'Total Number of Votes', 'Total Number of Votes', 'Winner of Election'])
-
   
 
 

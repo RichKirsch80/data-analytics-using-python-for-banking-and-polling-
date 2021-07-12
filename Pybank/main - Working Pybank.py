@@ -39,31 +39,9 @@ print("Greatest Increase in Profits:", {inc_max}, {value_max})
 print("Greatest Decrease in Profits:", {dec_max}, {value_min})
 
 
+
+        
     
     
         
-    #months = sum(1 for row in csvreader)
-    #print(months) 
-#Specify the file to write to budget_analysis.csv
-output_path = os.path.join ("..","Pybank", "analysis", "budget_analysis.csv")
-
-
-
-# Open the file using "write" mode. Specify the variable to hold the contents
-with open(output_path, 'w', newline='') as csvfile:
-
-    # Initialize csv.writer
-    csvwriter = csv.writer(csvfile, delimiter=',')
-
-    # Write (column headers)
-    csvwriter.writerow(['Total Months', 'Total Profit/Losses', 'Average Change', 'Greatest Increase', 'Greatest Decrease'])
-
-  
-
-
-
-
-
-
-
-  
+   
