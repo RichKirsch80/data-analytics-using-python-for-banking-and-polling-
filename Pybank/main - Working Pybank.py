@@ -1,7 +1,6 @@
 # Dependencies
 import os
 import csv
-from typing import List, Dict
 
 #Read budget_data.csv
 csvpath = os.path.join ("..","Pybank", "Resources", "budget_data.csv")
@@ -16,25 +15,29 @@ with open(csvpath, newline='') as csvfile:
     value_max = 0
     dec_max = 0
     value_min = 0
-    
+    first_month = 0
+    last_month =0
     for row in reader:
-        pl_total += float(row[1])
+        pl_total = float(row[1]) + pl_total
         if line_count == 0:
             line_count += 1
+            first_month = row[1]
         else:
             line_count += 1
+            last_month = row[1] 
             if float(row[1]) > value_max:
                 inc_max, value_max = row[0], float(row[1])
             if float(row[1]) < value_min:
-                dec_max, value_min = row[0], float(row[1])   
-     
+                dec_max, value_min = row[0], float(row[1])
+                  
+    avg_change = (int(last_month) - int(first_month)) / (line_count - 1)
 
 
 print("Financial Analysis")
 print("----------------------")
 print("Total Months: ", line_count)
-print("Total: $", pl_total)
-print('Average Change: $', )
+print("Total: $", round(pl_total))
+print('Average Change: $', round(avg_change))
 print("Greatest Increase in Profits:", {inc_max}, {value_max})
 print("Greatest Decrease in Profits:", {dec_max}, {value_min})
 
