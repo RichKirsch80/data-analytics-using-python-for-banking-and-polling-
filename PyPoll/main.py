@@ -17,12 +17,10 @@ with open(csvpath) as csvfile:
     cand = []
     #loop to read rows and count each candidate
     for row in reader:
+        
         if line_count == 0:
             line_count += 1
-                    
-        #sorts data to find unique candidate names
-        if row[2] not in cand:
-            cand.append(row[2])
+            
         #counts each candidates votes
         else:
             line_count += 1
@@ -33,7 +31,11 @@ with open(csvpath) as csvfile:
             if row[2] == "Li":
                 cand3_count += 1
             if row[2] == "O'Tooley":
-                cand4_count += 1
+                cand4_count += 1       
+        #sorts data to find unique candidate names
+        if row[2] not in cand:
+            cand.append(row[2])
+        
     #finds percentage of vote and coverts to correct format
     c1 = cand1_count / line_count
     c1_percent = "{:.0%}".format(c1)
