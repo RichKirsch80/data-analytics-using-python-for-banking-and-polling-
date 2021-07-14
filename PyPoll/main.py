@@ -15,12 +15,20 @@ with open(csvpath) as csvfile:
     cand3_count = 0
     cand4_count = 0
     cand = []
+    
     #loop to read rows and count each candidate
     for row in reader:
         
         if line_count == 0:
             line_count += 1
-            
+            if row[2] == 'Khan':
+                cand1_count += 1
+            if row[2] == "Correy":
+                cand2_count += 1
+            if row[2] == "Li":
+                cand3_count += 1
+            if row[2] == "O'Tooley":
+                cand4_count += 1     
         #counts each candidates votes
         else:
             line_count += 1
